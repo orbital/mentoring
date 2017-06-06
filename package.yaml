@@ -1,0 +1,38 @@
+name: mentoring
+version: '0.1.0.0'
+category: Web
+author: Sean Hess
+maintainer: seanhess@gmail.com
+copyright: Orbital Labs
+license: BSD3
+github: seanhess/mentoring
+extra-source-files:
+- README.md
+library:
+  source-dirs: src
+  exposed-modules:
+  - Lib
+  dependencies:
+  - base >=4.7 && <5
+executables:
+  mentoring-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - mentoring
+tests:
+  mentoring-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - mentoring
