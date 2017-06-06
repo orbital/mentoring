@@ -6,33 +6,40 @@ maintainer: seanhess@gmail.com
 copyright: Orbital Labs
 license: BSD3
 github: seanhess/mentoring
+
 extra-source-files:
 - README.md
+
+dependencies:
+- base >=4.7 && <5
+- exceptions
+- servant
+- servant-server
+- aeson
+- bytestring
+- transformers-base
+- text
+- mtl
+- monad-control
+
 library:
   source-dirs: src
-  exposed-modules:
-  - Lib
-  dependencies:
-  - base >=4.7 && <5
+
+
 executables:
   mentoring-exe:
     main: Main.hs
     source-dirs: app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
     dependencies:
     - base
     - mentoring
+
 tests:
   mentoring-test:
     main: Spec.hs
     source-dirs: test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
     dependencies:
     - base
     - mentoring
